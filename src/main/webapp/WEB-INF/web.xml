@@ -8,7 +8,7 @@
 
     <servlet>
         <servlet-name>WelcomeServlet</servlet-name>
-        <servlet-class>com.silich.controller.WelcomeServlet</servlet-class>
+        <servlet-class>com.silich.controller.WelcomeController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WelcomeServlet</servlet-name>
@@ -16,7 +16,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AddDepartmentServlet</servlet-name>
-        <servlet-class>com.silich.controller.AddDepartment</servlet-class>
+        <servlet-class>com.silich.controller.AddDepartmentController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddDepartmentServlet</servlet-name>
@@ -24,7 +24,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AddEmployeeServlet</servlet-name>
-        <servlet-class>com.silich.controller.AddEmployee</servlet-class>
+        <servlet-class>com.silich.controller.AddEmployeeController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddEmployeeServlet</servlet-name>
@@ -32,7 +32,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EditDepartmentServlet</servlet-name>
-        <servlet-class>com.silich.controller.EditDepartment</servlet-class>
+        <servlet-class>com.silich.controller.EditDepartmentController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditDepartmentServlet</servlet-name>
@@ -40,7 +40,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EditEmployeeServlet</servlet-name>
-        <servlet-class>com.silich.controller.EditEmployee</servlet-class>
+        <servlet-class>com.silich.controller.EditEmployeeController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditEmployeeServlet</servlet-name>
@@ -48,7 +48,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EmployeesListServlet</servlet-name>
-        <servlet-class>com.silich.controller.EmployeesList</servlet-class>
+        <servlet-class>com.silich.controller.EmployeesListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmployeesListServlet</servlet-name>

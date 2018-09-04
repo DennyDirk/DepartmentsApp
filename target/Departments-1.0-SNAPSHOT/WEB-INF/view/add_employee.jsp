@@ -30,6 +30,13 @@
         <input type="number" name="age" placeholder="Age">
 
         <button type="submit">Submit</button>
+
+        <c:if test="${wrongEmployee != null}">
+            <label style="color: red">
+                <br>Wrong! Fields must not be empty.<br>
+            Age must be positive.<br> First name and last name must contains at least 3 characters.
+            </label>
+        </c:if>
     </form>
 </div>
 

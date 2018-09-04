@@ -82,7 +82,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 
     @Override
     public List<Department> findAll() {
-        List<Department> departmentsList = new LinkedList<>();
+        List departmentsList = new LinkedList();
         statement = JDBCUtil.getStatement();
         try {
             resultSet = statement.executeQuery("SELECT * FROM departments.departments");

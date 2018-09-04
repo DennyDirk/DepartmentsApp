@@ -2,9 +2,7 @@ package com.silich.controller;
 
 import com.silich.model.Department;
 import com.silich.model.Employee;
-import com.silich.service.DepartmentService;
 import com.silich.service.DepartmentServiceImpl;
-import com.silich.service.EmployeeService;
 import com.silich.service.EmployeeServiceImpl;
 
 import javax.servlet.ServletException;
@@ -14,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class EmployeesList extends HttpServlet {
+public class EmployeesListController extends HttpServlet {
     private DepartmentServiceImpl departmentService = new DepartmentServiceImpl();
     private EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     private String department_id = null;
@@ -36,14 +34,12 @@ public class EmployeesList extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idEditElement = req.getParameter("edit");
         String idDeleteElement = req.getParameter("delete");
-        if (idEditElement !=null){
-
+        if (idEditElement != null) {
             req.setAttribute("idEditElement", idEditElement);
             resp.sendRedirect("/editEmployee?id=" + idEditElement + "&dep_id=" + department_id);
-        }
-        else if (idDeleteElement != null){
+        } else if (idDeleteElement != null) {
             employeeService.delete(Integer.parseInt(idDeleteElement));
-            resp.sendRedirect("/employees?id="+department_id);
+            resp.sendRedirect("/employees?id=" + department_id);
         }
     }
 }

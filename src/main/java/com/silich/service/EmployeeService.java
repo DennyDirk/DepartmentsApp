@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    void create(Employee employee);
+    void create(Employee employee, int id);
 
     void update(Employee employee);
 

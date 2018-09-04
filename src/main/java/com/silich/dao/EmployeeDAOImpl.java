@@ -13,6 +13,7 @@ import java.util.List;
 public class EmployeeDAOImpl implements EmployeeDAO {
     private ResultSet resultSet;
     private Statement statement;
+
     @Override
     public void create(Employee employee, int department_id) {
         statement = JDBCUtil.getStatement();
@@ -22,11 +23,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             String emp_l_name = employee.getLastName();
             Date emp_date = employee.getCreatedOn();
             int emp_age = employee.getAge();
-            statement.executeUpdate("INSERT INTO employees (email, first_name, last_name, age, created_on, department_id) VALUES ('"+emp_email+"', '"+emp_f_name+"', '"+emp_l_name+"', '"+emp_age+"', '"+emp_date+"', '"+department_id+"');");
+            statement.executeUpdate("INSERT INTO employees (email, first_name, last_name, age, created_on, department_id) VALUES ('" + emp_email + "', '" + emp_f_name + "', '" + emp_l_name + "', '" + emp_age + "', '" + emp_date + "', '" + department_id + "');");
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 statement.close();
             } catch (SQLException e) {
@@ -64,8 +64,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             statement.executeUpdate("DELETE FROM departments.employees WHERE id = '" + id + "'");
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 statement.close();
             } catch (SQLException e) {
@@ -115,15 +114,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public List<Employee> findAll(int department_id) {
-        List<Employee> employees = new LinkedList<>();
+        List employees = new LinkedList();
         statement = JDBCUtil.getStatement();
         try {
-            resultSet = statement.executeQuery("SELECT * FROM employees AS emp JOIN departments ON emp.department_id = departments.id WHERE emp.department_id ='"+ department_id +"'");
+            resultSet = statement.executeQuery("SELECT * FROM employees AS emp JOIN departments ON emp.department_id = departments.id WHERE emp.department_id ='" + department_id + "'");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int emp_id = resultSet.getInt("emp.id");
                 String email = resultSet.getString("email");
                 String first_name = resultSet.getString("first_name");
@@ -142,8 +141,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
                 resultSet.close();
                 statement.close();

@@ -27,6 +27,11 @@
         <label> Name </label>
         <input name="name" placeholder="Name">
         <button type="submit">Submit</button>
+        <h3>
+        <c:if test="${wrongName != null}">
+            <label style="color: red">Name is wrong!</label>
+        </c:if>
+        </h3>
     </form>
 </div>
 

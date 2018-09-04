@@ -1,6 +1,9 @@
 package com.silich.util;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class JDBCUtil {
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -14,36 +17,11 @@ public class JDBCUtil {
             Class.forName(JDBC_DRIVER);
             Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             statement = connection.createStatement();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return statement;
     }
-
-    public static void main(String[] args) {
-        try {
-            Class.forName(JDBC_DRIVER);
-            Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            Statement statement = connection.createStatement();
-            String sqlQuery = "SELECT*FROM departments.employees";
-            ResultSet resultSet = statement.executeQuery(sqlQuery);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String email = resultSet.getString("email");
-                String fname = resultSet.getString("first_name");
-                String lname = resultSet.getString("last_name");
-                int age = resultSet.getInt("age");
-                Date date = resultSet.getDate("created_on");
-
-                System.out.println(id + " " + email + " " + fname + " " + lname
-                        + " " + age + " " + date);
-
-            }
-
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

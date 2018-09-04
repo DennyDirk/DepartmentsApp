@@ -2,10 +2,9 @@ package com.silich.service;
 
 import com.silich.dao.DepartmentDAOImpl;
 import com.silich.model.Department;
-import com.silich.util.JDBCUtil;
+import net.sf.oval.ConstraintViolation;
+import net.sf.oval.Validator;
 
-import java.sql.ResultSet;
-import java.util.LinkedList;
 import java.util.List;
 
 public class DepartmentServiceImpl implements DepartmentService {

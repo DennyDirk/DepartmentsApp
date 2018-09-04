@@ -10,8 +10,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl();
 
     @Override
-    public void create(Employee employee) {
-
+    public void create(Employee employee, int id) {
+        employeeDAO.create(employee, id);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee findById(int id) {
-       return employeeDAO.findById(id);
+        return employeeDAO.findById(id);
     }
 
     @Override

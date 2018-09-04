@@ -1,13 +1,14 @@
 package com.silich.model;
 
-import java.util.List;
+import net.sf.oval.constraint.NotEmpty;
+import net.sf.oval.constraint.NotNull;
 
 public class Department {
-
     private int id;
-    private String name;
-    private List<Employee> employees;
 
+    @NotNull
+    @NotEmpty
+    private String name;
 
     public int getId() {
         return id;
@@ -25,12 +26,24 @@ public class Department {
         this.name = name;
     }
 
-
-    public List<Employee> getEmployees() {
-        return employees;
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + id;
+        return result;
     }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Department department = (Department) obj;
+        return id == department.id && (name != null && name.equals(department.name));
     }
 }

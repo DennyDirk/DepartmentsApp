@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <%--<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>--%>
-    <style>
+       <style>
         table, th, td {
             border: 1px solid black;
             border-collapse: collapse;
@@ -30,6 +29,12 @@
         <input type="number" name="age" value="${employee.getAge()}">
 
         <button type="submit">Submit</button>
+        <c:if test="${wrongfields != null}">
+            <label style="color: red">
+                <br>Wrong! Fields must not be empty.<br>
+                Age must be positive.<br> First name and last name must contains at least 3 characters.
+            </label>
+        </c:if>
     </form>
 </div>
 
